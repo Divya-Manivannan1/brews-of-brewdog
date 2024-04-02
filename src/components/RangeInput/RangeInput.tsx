@@ -1,4 +1,3 @@
-import { ChangeEventHandler } from "react";
 import "./RangeInput.scss";
 
 type RangeInputProps = {
@@ -6,7 +5,6 @@ type RangeInputProps = {
   max: number;
   label: string;
   id: string;
-  onChange: ChangeEventHandler<HTMLInputElement>;
   value: number;
 };
 
@@ -15,20 +13,12 @@ const RangeInput = ({
   max = 10,
   label,
   id,
-  onChange,
   value,
 }: RangeInputProps) => {
   return (
     <div className="range-input">
       <label htmlFor={id}>{label}</label>
-      <input
-        id={id}
-        type="range"
-        min={min}
-        max={max}
-        value={value}
-        onChange={onChange}
-      />
+      <input id={id} type="range" min={min} max={max} value={value} />
     </div>
   );
 };

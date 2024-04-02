@@ -5,4 +5,10 @@
   gap: 4rem;
   justify-items: center;
   padding: 4rem;
+  transition: margin-left 0.5s;
+}
+
+.filter-open {
+  padding: 1rem;
+  gap: 2rem;
 }

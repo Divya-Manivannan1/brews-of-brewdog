@@ -1,21 +1,13 @@
-import { ChangeEventHandler } from "react";
 import "./RadioButtons.scss";
 
 type RadioButtonProps = {
-  onChange: ChangeEventHandler<HTMLInputElement>;
   selected: string;
   options: string[];
   label: string;
   name: string;
 };
 
-const RadioButtons = ({
-  onChange,
-  selected,
-  options,
-  label,
-  name,
-}: RadioButtonProps) => {
+const RadioButtons = ({ selected, options, label, name }: RadioButtonProps) => {
   return (
     <div className="radio-buttons">
       <p>{label}</p>
@@ -27,7 +19,6 @@ const RadioButtons = ({
             id={option}
             value={option}
             checked={option === selected}
-            onChange={onChange}
           />
           <label className="radio-buttons__label" htmlFor={option}>
             {option}

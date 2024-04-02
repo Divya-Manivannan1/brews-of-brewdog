@@ -1,0 +1,39 @@
+@use "../../assets/styles/variables" as *;
+
+.side-filter {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: $primary-color;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 1rem;
+
+  * {
+    padding: 0.2rem;
+  }
+
+  &__close-icon {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    margin-left: 50px;
+  }
+
+  @media screen and (min-height: 450px) {
+    padding-top: 2rem;
+  }
+
+  @media screen and (min-width: $tablet-breakpoint) {
+    * {
+      padding: 0.5rem;
+    }
+  }
+}
+
+.filter-open {
+  width: 8rem;
+}
