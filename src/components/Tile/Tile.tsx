@@ -4,35 +4,11 @@ import "./Tile.scss";
 
 type TileProps = {
   beer: Beer;
+  brewedSince: string;
 };
 
-const Tile = ({ beer }: TileProps) => {
-  const { name, tagline, image_url, abv, ibu, ph, description, first_brewed } =
-    beer;
-
-  const convertDate = (oldFormat: string): string => {
-    if (!oldFormat.includes("/")) return "";
-    const dateArray: string[] = oldFormat.split("/");
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    const date = new Date(+dateArray[1], +dateArray[0]);
-    const newFormat = `${months[date.getMonth()]} of ${date.getFullYear()}`;
-    return newFormat;
-  };
-
-  const brewedSince: string = convertDate(first_brewed);
+const Tile = ({ beer, brewedSince }: TileProps) => {
+  const { name, tagline, image_url, abv, ibu, ph, description } = beer;
 
   return (
     <div className="tile">
@@ -48,7 +24,7 @@ const Tile = ({ beer }: TileProps) => {
           <Bubble label="ph" value={ph} />
         </div>
         <p className="tile__description">{description}</p>
-        <p className="tile__year">Brewed since : {brewedSince}</p>
+        <p className="tile__year">{`Brewed since ${brewedSince}`}</p>
       </div>
     </div>
   );
