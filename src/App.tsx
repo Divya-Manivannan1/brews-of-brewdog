@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="app">
       <h1>Brews Of BrewDog</h1>
+      <img src="" alt="filter" />
       <SideFilter />
       <TileContainer beers={beers} />
     </div>
