@@ -1,0 +1,47 @@
+@use "../../assets/styles/variables" as *;
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  background-color: $primary-color;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 1rem;
+
+  &__image {
+    display: block;
+    max-height: 350px;
+    width: 100%;
+    width: auto;
+    height: auto;
+    margin: 1rem auto;
+  }
+
+  &__image-container {
+    background-color: $secondary-color;
+    width: 100%;
+    border-radius: 0.9rem;
+  }
+
+  &__content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    width: 100%;
+    word-break: break-word;
+  }
+
+  &__heading {
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
+
+  &__bubble-container {
+    display: flex;
+    align-content: space-evenly;
+  }
+}

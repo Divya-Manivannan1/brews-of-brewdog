@@ -1,0 +1,23 @@
+@use "./variables" as *;
+
+* {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: $text-color;
+}
+
+button {
+  font-size: 1.2rem;
+}
+
+h1 {
+  font-size: 2.1rem;
+}
+
+h2 {
+  font-size: 1.65rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
