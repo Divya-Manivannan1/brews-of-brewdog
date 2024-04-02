@@ -6,6 +6,7 @@ type RadioButtonProps = {
   selected: string;
   options: string[];
   label: string;
+  name: string;
 };
 
 const RadioButtons = ({
@@ -13,30 +14,26 @@ const RadioButtons = ({
   selected,
   options,
   label,
+  name,
 }: RadioButtonProps) => {
   return (
     <div className="radio-buttons">
       <p>{label}</p>
-      {options.map((option, index) => {
-        const optionLower = option.toLowerCase();
-        const optionCapitalized =
-          optionLower[0].toUpperCase() + optionLower.slice(1);
-        return (
-          <div key={"radio-button" + option + index}>
-            <input
-              type="radio"
-              name="gender"
-              id={optionLower}
-              value={optionLower}
-              checked={optionLower === selected.toLowerCase()}
-              onChange={onChange}
-            />
-            <label className="radio-buttons__label" htmlFor={optionLower}>
-              {optionCapitalized}
-            </label>
-          </div>
-        );
-      })}
+      {options.map((option, index) => (
+        <div key={"radio-button" + option + index}>
+          <input
+            type="radio"
+            name={name}
+            id={option}
+            value={option}
+            checked={option === selected}
+            onChange={onChange}
+          />
+          <label className="radio-buttons__label" htmlFor={option}>
+            {option}
+          </label>
+        </div>
+      ))}
     </div>
   );
 };

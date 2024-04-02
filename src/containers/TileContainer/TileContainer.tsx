@@ -9,8 +9,8 @@ type TileContainerProps = {
 const TileContainer = ({ beers }: TileContainerProps) => {
   return (
     <div className="tile-container">
-      {beers.map((beer) => (
-        <Tile name={beer.name} image={beer.image_url} tagLine={beer.tagline} />
+      {beers.map((beer, index) => (
+        <Tile beer={beer} key={index} />
       ))}
     </div>
   );
