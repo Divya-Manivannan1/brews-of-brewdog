@@ -16,11 +16,11 @@ const RadioButtons = ({ selected, options, label, name }: RadioButtonProps) => {
           <input
             type="radio"
             name={name}
-            id={option}
+            id={`${name}-${option}`}
             value={option}
-            checked={option === selected}
+            defaultChecked={option === selected}
           />
-          <label className="radio-buttons__label" htmlFor={option}>
+          <label className="radio-buttons__label" htmlFor={`${name}-${option}`}>
             {option}
           </label>
         </div>
