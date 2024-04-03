@@ -15,7 +15,7 @@ const SearchBar = ({ id }: SearchBarProps) => {
         id={id}
         autoComplete="off"
         className="input-bar"
-        placeholder={`Search by ${id.toLowerCase()}`}
+        placeholder={`${id}...`}
       ></input>
     </div>
   );

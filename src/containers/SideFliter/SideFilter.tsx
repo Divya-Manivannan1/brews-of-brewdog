@@ -3,6 +3,7 @@ import RadioButtons from "../../components/RadioButtons/RadioButtons";
 import RangeInput from "../../components/RangeInput/RangeInput";
 import "./SideFilter.scss";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import filter from "../../assets/images/filter.svg";
 
 type SideFilterProps = {
   handleChange: ChangeEventHandler<HTMLFormElement>;
@@ -29,7 +30,7 @@ const SideFilter = ({ handleChange, abv, ph, year }: SideFilterProps) => {
   return (
     <div className="side-filter">
       <img
-        src=""
+        src={filter}
         alt="filter"
         className="side-filter__icon"
         onClick={toggleIsFilterOpen}

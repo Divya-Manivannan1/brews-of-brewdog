@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react";
 import SideFilter from "../containers/SideFliter/SideFilter";
 import TileContainer from "../containers/TileContainer/TileContainer";
-import beers from "../data/beers";
+import beerData from "../data/beerData";
 import { Beer } from "../types/types";
 
 type SearchObject = {
@@ -19,7 +19,6 @@ const Home = () => {
     brewedSince: 1950,
   });
 
-  
   const handleInput = (event: FormEvent<HTMLFormElement>) => {
     const name = event.currentTarget.Name.value;
     const abv = event.currentTarget.abv.value;
@@ -43,54 +42,52 @@ const Home = () => {
     //check for brewed since
     const brewedYear = new Date(beer.first_brewed.split("/")[1]);
     if (brewedYear.getFullYear() < searchInput.brewedSince) return false;
-
-    switch (searchInput.abv) {
-      case "High":
-        if (beer.abv >= 6) isABV = true;
-        break;
-      case "Medium":
-        if (beer.abv < 6 && beer.abv > 4) isABV = true;
-        break;
-      case "Low":
-        if (beer.abv < 4) isABV = true;
-        break;
-      default:
-        isABV = true;
-        break;
+    if (beer.abv) {
+      switch (searchInput.abv) {
+        case "High":
+          if (beer.abv >= 6) isABV = true;
+          break;
+        case "Medium":
+          if (beer.abv < 6 && beer.abv > 4) isABV = true;
+          break;
+        case "Low":
+          if (beer.abv < 4) isABV = true;
+          break;
+      }
     }
-    switch (searchInput.ph) {
-      case "High":
-        if (beer.ph < 4) isPH = true;
-        break;
-      case "Medium":
-        if (beer.ph > 4 && beer.ph < 5) isPH = true;
-        break;
-      case "Low":
-        if (beer.ph > 5) isPH = true;
-        break;
-      default:
-        isPH = true;
-        break;
+    if (searchInput.abv == "Any") isABV = true;
+    if (beer.ph) {
+      switch (searchInput.ph) {
+        case "High":
+          if (beer.ph < 4) isPH = true;
+          break;
+        case "Medium":
+          if (beer.ph > 4 && beer.ph < 5) isPH = true;
+          break;
+        case "Low":
+          if (beer.ph > 5) isPH = true;
+          break;
+      }
     }
+    if (searchInput.ph == "Any") isPH = true;
 
     const isFiltered: boolean = isABV && isPH;
     return isFiltered;
   };
 
-  const filteredBeers: Beer[] = beers.filter((beer) =>
+  const filteredBeers: Beer[] = beerData.filter((beer) =>
     checkBeerForDisplayed(beer, searchInput)
   );
 
   return (
     <div className="home">
-    
-        <SideFilter
-          handleChange={handleInput}
-          ph={searchInput.ph}
-          abv={searchInput.abv}
-          year={searchInput.brewedSince}
-        />
-      
+      <SideFilter
+        handleChange={handleInput}
+        ph={searchInput.ph}
+        abv={searchInput.abv}
+        year={searchInput.brewedSince}
+      />
+
       <TileContainer beers={filteredBeers} />
     </div>
   );

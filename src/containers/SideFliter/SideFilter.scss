@@ -7,30 +7,39 @@
   top: 0;
   left: 0;
   background-color: $primary-color;
-  transition: 0.5s;
   padding-top: 1rem;
 
   &__contents {
     width: 0;
     overflow-x: hidden;
+    transition: width 0.3s linear;
+
     * {
       padding: 0.2rem;
       @media screen and (min-width: $tablet-breakpoint) {
         padding: 0.5rem;
       }
+      @media screen and (min-width: $desktop-breakpoint) {
+        padding: 0.7rem;
+      }
     }
   }
 
   .open {
-    width: 10rem;
+    min-width: 10rem;
+    width: 15vw;
+    transform: translateX(0px, -200px);
+    transition: width 0.5s transform 0.5s linear;
   }
 
   &__icon {
     position: absolute;
     top: 5rem;
-    right: -3rem;
+    right: -3.5rem;
     background-color: $primary-color;
     padding: 0.5rem;
+    height: 2.5rem;
+    aspect-ratio: 1;
   }
 
   @media screen and (min-height: 450px) {
