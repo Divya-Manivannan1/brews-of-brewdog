@@ -5,32 +5,45 @@ import beers from "../data/beers";
 import { Beer } from "../types/types";
 
 type SearchObject = {
+  name: string;
   abv: "Any" | "High" | "Medium" | "Low";
   ph: "Any" | "High" | "Medium" | "Low";
   brewedSince: number;
 };
 
-function Home() {
+const Home = () => {
   const [searchInput, setSearchInput] = useState<SearchObject>({
+    name: "",
     abv: "Any",
     ph: "Any",
     brewedSince: 1950,
   });
 
+  
   const handleInput = (event: FormEvent<HTMLFormElement>) => {
+    const name = event.currentTarget.Name.value;
     const abv = event.currentTarget.abv.value;
     const ph = event.currentTarget.ph.value;
     const brewedSince = +event.currentTarget["first-brewed"].value;
-    setSearchInput({ abv, ph, brewedSince });
+    setSearchInput({ name, abv, ph, brewedSince });
   };
 
+  //checks if a beer needs to be displayed based on the field inputs
   const checkBeerForDisplayed = (
     beer: Beer,
     searchInput: SearchObject
   ): boolean => {
     let isABV: boolean = false,
-      isPH: boolean = false,
-      isYear: boolean = false;
+      isPH: boolean = false;
+
+    //if the name condition is not satisfied return false
+    if (!beer.name.toLowerCase().includes(searchInput.name.toLowerCase()))
+      return false;
+
+    //check for brewed since
+    const brewedYear = new Date(beer.first_brewed.split("/")[1]);
+    if (brewedYear.getFullYear() < searchInput.brewedSince) return false;
+
     switch (searchInput.abv) {
       case "High":
         if (beer.abv >= 6) isABV = true;
@@ -59,10 +72,9 @@ function Home() {
         isPH = true;
         break;
     }
-    const brewedYear = new Date(beer.first_brewed.split("/")[1]);
-    if (brewedYear.getFullYear() >= searchInput.brewedSince) isYear = true;
-    console.log(`abv${isABV} && ph${isPH} && year${isYear}`);
-    return isABV && isPH && isYear;
+
+    const isFiltered: boolean = isABV && isPH;
+    return isFiltered;
   };
 
   const filteredBeers: Beer[] = beers.filter((beer) =>
@@ -71,16 +83,17 @@ function Home() {
 
   return (
     <div className="home">
-      <img src="" alt="filter" />
-      <SideFilter
-        handleChange={handleInput}
-        ph={searchInput.ph}
-        abv={searchInput.abv}
-        year={searchInput.brewedSince}
-      />
+    
+        <SideFilter
+          handleChange={handleInput}
+          ph={searchInput.ph}
+          abv={searchInput.abv}
+          year={searchInput.brewedSince}
+        />
+      
       <TileContainer beers={filteredBeers} />
     </div>
   );
-}
+};
 
 export default Home;

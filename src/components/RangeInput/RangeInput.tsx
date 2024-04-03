@@ -18,7 +18,7 @@ const RangeInput = ({
   return (
     <div className="range-input">
       <label htmlFor={id}>{label}</label>
-      <input id={id} type="range" min={min} max={max} value={value} />
+      <input id={id} type="range" min={min} max={max} defaultValue={value} />
     </div>
   );
 };
