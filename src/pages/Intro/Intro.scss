@@ -1,0 +1,42 @@
+@use "../../assets/styles/variables" as *;
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10rem;
+  gap: 3rem;
+  color: $secondary-color;
+  font-size: 5rem;
+  font-family: $main-font;
+
+  &__age {
+    font-family: $main-font;
+    font-size: 5rem;
+    width: 15rem;
+    appearance: none;
+    border: none;
+    text-align: center;
+    border-bottom: 2px solid $secondary-color;
+    color: $secondary-color;
+    padding-bottom: 0.5rem;
+
+    &:hover {
+      appearance: none;
+    }
+
+    &:focus {
+      appearance: none;
+      border: none;
+      border-bottom: 1px solid $secondary-color;
+    }
+  }
+
+  &__link {
+    color: $text-color;
+    text-decoration: none;
+    background-color: $secondary-color;
+    padding: 0.5rem 1rem;
+    border-radius: 3rem;
+  }
+}
