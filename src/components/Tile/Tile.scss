@@ -1,9 +1,8 @@
 @use "../../assets/styles/variables" as *;
 
 .tile {
-  display: flex;
-  flex-direction: column;
-  align-items:center;
+  display: grid;
+  grid-template: 3fr 2fr / 1fr;
   background-color: $primary-color;
   width: 100%;
   max-width: 350px;
@@ -17,7 +16,7 @@
     width: 100%;
     width: auto;
     height: auto;
-    margin: 1rem auto;
+    margin: 2rem auto;
   }
 
   &__image-container {
@@ -27,16 +26,15 @@
   }
 
   &__content {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    width: 100%;
-    word-break: break-word;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: grid;
+    grid-template: 0.5fr 0.5fr 0.5fr 0.5fr / 1fr;
+    text-align: center;
   }
 
   &__heading {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: normal;
   }
 

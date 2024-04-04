@@ -1,7 +1,10 @@
+@use "../../assets/styles/variables" as *;
+
 .range-input {
   display: flex;
   flex-direction: column;
   max-width: 150px;
   gap: 0.5rem;
   padding: 0.5rem;
+  accent-color: $secondary-color;
 }

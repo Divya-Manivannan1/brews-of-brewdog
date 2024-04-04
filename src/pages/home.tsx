@@ -4,14 +4,18 @@ import TileContainer from "../containers/TileContainer/TileContainer";
 import beerData from "../data/beerData";
 import { Beer } from "../types/types";
 
-type SearchObject = {
-  name: string;
-  abv: "Any" | "High" | "Medium" | "Low";
-  ph: "Any" | "High" | "Medium" | "Low";
-  brewedSince: number;
-};
 
 const Home = () => {
+
+  //type casting the search object
+  type SearchObject = {
+    name: string;
+    abv: "Any" | "High" | "Medium" | "Low";
+    ph: "Any" | "High" | "Medium" | "Low";
+    brewedSince: number;
+  };
+
+  //creating a state with the search object
   const [searchInput, setSearchInput] = useState<SearchObject>({
     name: "",
     abv: "Any",
@@ -19,6 +23,7 @@ const Home = () => {
     brewedSince: 1950,
   });
 
+  //callback function to handle changes in the form: sets the search object state
   const handleInput = (event: FormEvent<HTMLFormElement>) => {
     const name = event.currentTarget.Name.value;
     const abv = event.currentTarget.abv.value;
@@ -32,16 +37,19 @@ const Home = () => {
     beer: Beer,
     searchInput: SearchObject
   ): boolean => {
-    let isABV: boolean = false,
-      isPH: boolean = false;
 
     //if the name condition is not satisfied return false
     if (!beer.name.toLowerCase().includes(searchInput.name.toLowerCase()))
       return false;
 
-    //check for brewed since
+    //if the brewed since consition fails, returns false
     const brewedYear = new Date(beer.first_brewed.split("/")[1]);
     if (brewedYear.getFullYear() < searchInput.brewedSince) return false;
+    
+    let isABV: boolean = false,
+      isPH: boolean = false;
+
+    //checking for abv
     if (beer.abv) {
       switch (searchInput.abv) {
         case "High":
@@ -56,6 +64,8 @@ const Home = () => {
       }
     }
     if (searchInput.abv == "Any") isABV = true;
+
+    //checking for acidity
     if (beer.ph) {
       switch (searchInput.ph) {
         case "High":
@@ -87,7 +97,6 @@ const Home = () => {
         abv={searchInput.abv}
         year={searchInput.brewedSince}
       />
-
       <TileContainer beers={filteredBeers} />
     </div>
   );

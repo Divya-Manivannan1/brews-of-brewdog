@@ -1,0 +1,9 @@
+@use "./assets/styles/variables" as *;
+
+.app {
+  color: $text-color;
+
+  &__title {
+    color: $secondary-color;
+  }
+}
