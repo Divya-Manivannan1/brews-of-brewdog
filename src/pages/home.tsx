@@ -4,9 +4,7 @@ import TileContainer from "../containers/TileContainer/TileContainer";
 import beerData from "../data/beerData";
 import { Beer } from "../types/types";
 
-
 const Home = () => {
-
   //type casting the search object
   type SearchObject = {
     name: string;
@@ -37,15 +35,16 @@ const Home = () => {
     beer: Beer,
     searchInput: SearchObject
   ): boolean => {
-
     //if the name condition is not satisfied return false
     if (!beer.name.toLowerCase().includes(searchInput.name.toLowerCase()))
       return false;
 
     //if the brewed since consition fails, returns false
-    const brewedYear = new Date(beer.first_brewed.split("/")[1]);
-    if (brewedYear.getFullYear() < searchInput.brewedSince) return false;
-    
+    if (beer.first_brewed.includes("/")) {
+      const brewedYear = new Date(beer.first_brewed.split("/")[1]);
+      if (brewedYear.getFullYear() < searchInput.brewedSince) return false;
+    } else if (+beer.first_brewed < searchInput.brewedSince) return false;
+
     let isABV: boolean = false,
       isPH: boolean = false;
 

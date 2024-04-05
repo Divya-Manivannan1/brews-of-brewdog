@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import "./details.scss";
+import "./Details.scss";
 import { Beer } from "../../types/types";
 import beerData from "../../data/beerData";
 import Bubble from "../../components/Bubble/Bubble";

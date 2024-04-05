@@ -3,7 +3,7 @@ import { Intro } from "./pages/Intro/Intro";
 import "./App.scss";
 import { ComeBackLater } from "./pages/ComeBackLater/ComeBackLater";
 import { Details } from "./pages/Details/Details";
-import Home from "./pages/home";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
