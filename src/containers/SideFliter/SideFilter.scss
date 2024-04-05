@@ -31,13 +31,14 @@
     transform: translateX(0px, -200px);
     transition: width 0.5s transform 0.5s linear;
   }
+  
   &__icon {
     position: absolute;
-    top: 6.5rem;
+    top: 5rem;
     right: -3rem;
     background-color: $primary-color;
     padding: 0.5rem;
-    height: 2rem;
+    height: 3rem;
     aspect-ratio: 1;
   }
 
