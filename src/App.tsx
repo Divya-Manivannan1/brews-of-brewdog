@@ -8,7 +8,9 @@ import Home from "./pages/Home";
 const App = () => {
   return (
     <div className="app">
-      <h1 className="app__title">Brews Of BrewDog</h1>
+      <a href="/brews-of-brewdog/home">
+        <h1 className="app__title">Brews Of BrewDog</h1>
+      </a>
       <BrowserRouter basename="/brews-of-brewdog">
         <Routes>
           <Route path="/" element={<Intro />} />

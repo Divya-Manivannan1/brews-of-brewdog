@@ -38,6 +38,10 @@
     text-align: center;
   }
 
+  &__year {
+    padding-bottom: 1rem;
+  }
+
   &__tagline {
     font-size: 1.7rem;
     text-align: center;
@@ -60,6 +64,10 @@
   &__description,
   &__tips {
     padding-bottom: 1rem;
+  }
+
+  &__pairing {
+    padding-left: 5rem;
   }
 
   &__bubble-container {

@@ -46,6 +46,8 @@ export const Details = () => {
           <p className="details__tagline">{tagline}</p>
           <p className="details__description">{description}</p>
           <p className="details__year">{`First brewed ${first_brewed}`}</p>
+          <h3 className="details__heading">Brewer's tips</h3>
+          <p className="details__tips">{brewers_tips}</p>
         </div>
         <div className="details__bubble-container">
           {abv ? <Bubble label="ABV%" value={abv} /> : <></>}
@@ -63,9 +65,11 @@ export const Details = () => {
         </div>
         <div className="details__content">
           <h3 className="details__heading">Suggested food pairings</h3>
-          <p className="details__pairing">{food_pairing}</p>
-          <h3 className="details__heading">Brewer's tips</h3>
-          <p className="details__tips">{brewers_tips}</p>
+          <ul className="details__pairing">
+            {food_pairing.map((food) => (
+              <li>{food}</li>
+            ))}
+          </ul>
           <p className="details__brewer">{`Info contributed by ${contributed_by}`}</p>
         </div>
         <div className="details__bubble-container"></div>
