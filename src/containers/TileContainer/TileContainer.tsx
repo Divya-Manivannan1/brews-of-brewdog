@@ -7,10 +7,9 @@ type TileContainerProps = {
 };
 
 const TileContainer = ({ beers }: TileContainerProps) => {
-
   //Converting the date to a more readable format
   const convertDate = (oldFormat: string): string => {
-    if (!oldFormat.includes("/")) return "";
+    if (!oldFormat.includes("/")) return oldFormat;
     const dateArray: string[] = oldFormat.split("/");
     const months = [
       "January",
@@ -31,7 +30,6 @@ const TileContainer = ({ beers }: TileContainerProps) => {
     return newFormat;
   };
 
-  
   return (
     <div className="tile-container">
       {beers.map((beer, index) => {

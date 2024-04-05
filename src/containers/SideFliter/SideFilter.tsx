@@ -49,7 +49,7 @@ const SideFilter = ({ handleChange, abv, ph, year }: SideFilterProps) => {
             name={"ph"}
           />
           <RangeInput
-            min={1950}
+            min={1970}
             max={2020}
             label={"First Brewed"}
             id={"first-brewed"}
