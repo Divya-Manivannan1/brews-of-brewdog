@@ -1,0 +1,83 @@
+@use "../../assets/styles/variables" as *;
+
+.details {
+  display: flex;
+  flex-direction: column;
+  background-color: $primary-color;
+  margin: 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 1rem;
+  font-family: $text-font;
+  gap: 2rem;
+
+  &__image {
+    display: block;
+    max-height: 350px;
+    width: 100%;
+    width: auto;
+    height: auto;
+    margin: 2rem auto;
+  }
+
+  &__image-container {
+    background-color: $secondary-color;
+    width: 100%;
+    border-radius: 0.9rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-family: $main-font;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  &__tagline {
+    text-align: center;
+    font-family: $main-font;
+    font-weight: 300;
+    padding-bottom: 1rem;
+  }
+
+  &__description {
+    text-align: justify;
+    align-self: center;
+  }
+
+  &__heading {
+    font-family: $main-font;
+    font-weight: 300;
+  }
+
+  &__pairing,
+  &__description,
+  &__tips {
+    padding-bottom: 1rem;
+  }
+
+  &__bubble-container {
+    display: grid;
+    grid-template: 1fr 1fr / repeat(4, 1fr);
+  }
+
+  @media screen and (min-width: $tablet-breakpoint) {
+    display: grid;
+    grid-template: 2fr 1fr/ 2fr 3fr;
+    padding: 2rem;
+    column-gap: 2rem;
+    row-gap: 0;
+    align-items: center;
+  }
+
+  @media screen and (min-width: $desktop-breakpoint) {
+    padding: 4rem;
+    column-gap: 4rem;
+    align-items: center;
+  }
+}

@@ -1,0 +1,13 @@
+@use "../../assets/styles/variables" as *;
+
+.come-back-later {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem;
+  gap: 3rem;
+  color: $secondary-color;
+  font-size: 4rem;
+  font-family: $main-font;
+  text-align: center;
+}

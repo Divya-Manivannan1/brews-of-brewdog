@@ -1,5 +1,9 @@
+@use "../../assets/styles/variables" as *;
+
 .radio-buttons {
   padding: 0.5rem;
+  accent-color: $secondary-color;
+
   &__label {
     margin-left: 5px;
     margin-right: 10px;

@@ -1,11 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tsukimi+Rounded&display=swap");
+
 // breakpoints
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1024px;
-$large-desktop-breakpoint: 1440px;
 
 //colors
-$primary-color: darkkhaki;
-$text-color: black;
+$primary-color: rgb(168, 160, 47);
+$text-color: white;
 $background-color: beige;
-$secondary-color: olive;
-$accent-color: #2e4a5c;
+$secondary-color: rgb(128, 128, 0);
+
+//fonts
+$main-font: "Protest Revolution", sans-serif;
+$text-font: "Tsukimi Rounded", sans-serif;

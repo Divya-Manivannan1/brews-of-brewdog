@@ -1,0 +1,12 @@
+@use "./assets/styles/variables" as *;
+
+.app {
+  color: $text-color;
+
+  &__title {
+    color: $secondary-color;
+    font-family: $main-font;
+    font-weight: 700;
+    font-size: 3rem;
+  }
+}

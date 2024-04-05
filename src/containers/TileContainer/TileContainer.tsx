@@ -7,6 +7,8 @@ type TileContainerProps = {
 };
 
 const TileContainer = ({ beers }: TileContainerProps) => {
+
+  //Converting the date to a more readable format
   const convertDate = (oldFormat: string): string => {
     if (!oldFormat.includes("/")) return "";
     const dateArray: string[] = oldFormat.split("/");
@@ -28,6 +30,8 @@ const TileContainer = ({ beers }: TileContainerProps) => {
     const newFormat = `${months[date.getMonth()]} of ${date.getFullYear()}`;
     return newFormat;
   };
+
+  
   return (
     <div className="tile-container">
       {beers.map((beer, index) => {

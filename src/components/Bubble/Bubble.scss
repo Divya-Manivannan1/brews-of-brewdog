@@ -3,8 +3,9 @@
 .bubble {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
-  text-align: center;
 
   &__label {
     margin: 0.2rem;
@@ -12,7 +13,6 @@
 
   &__value {
     background-color: $secondary-color;
-    color: $background-color;
     border-radius: 1rem;
     padding: 0.5rem 1rem;
     margin: 0;

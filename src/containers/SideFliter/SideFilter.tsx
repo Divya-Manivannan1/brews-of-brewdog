@@ -19,13 +19,11 @@ const SideFilter = ({ handleChange, abv, ph, year }: SideFilterProps) => {
     setIsSideFilterOpen(!isSideFilterOpen);
   };
 
+  //depending on the isFilterOpen state, the classname for the filter contents is decided
   let divClassName: string = "side-filter__contents";
-
   if (isSideFilterOpen) {
     divClassName = divClassName.concat(" open");
   }
-  console.log(isSideFilterOpen);
-  console.log(divClassName);
 
   return (
     <div className="side-filter">
